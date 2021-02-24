@@ -1,0 +1,73 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+:root {
+  --bg-color: #2C2C2C;
+  --text-color: #F3F6F5;
+  font-size: 18px;
+}
+
+body{
+	background-color: var(--bg-color);
+}
+
+main{
+	margin: 50px 50px;
+}
+
+.data{
+	font-size: 0.9rem;
+  	margin-bottom: 2rem;
+}
+
+.city{
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	padding-top: 100px;
+ 	margin-bottom: 10px;
+}
+
+
+.temp-img {
+  width: 50px;
+}
+
+.temp{
+	font-size: 2.2rem;
+  	font-weight: bold;
+}
+
+.weather{
+	font-size: 1.8rem;
+ 	margin-bottom: 1rem;
+}
+
+.searchbox{
+	padding: 10px;
+	background-color: white;
+	max-width: 380px;
+ 	margin: 0px auto;
+  	border-radius: 3px;
+}
+
+.search {
+  width: 100%;
+  border: none;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.weather-card{
+	margin: 10px auto;
+	width: 400px;
+	height: 600px;
+	border-radius: 5px;
+	background-image: url(imagenes/soleado.jpg);
+	background-position: left;
+	text-align: center;
+	color: white;
+	display: none;
+}
