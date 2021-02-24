@@ -12,12 +12,18 @@ const weather = document.getElementById('weather');
 const range = document.getElementById('range');
 
 function updateImages(data) {
-  const temp = toCelsius(data.main.temp);
-  let src = 'imagenes/temp.jpg';
-  if (temp > 26) {
-    src = 'imagenes/soleado.jpg';
-  } else if (temp < 20) {
-    src = 'imagenes/temp.jpg';
+  const weather = data.weather[0].description;
+  let src = 'imagenes/cloudy.png';
+  if (weather === 'cielo claro') {
+    src = 'imagenes/sun.png';
+  } else if (weather === 'nevada ligera' || weather ==='nevada' || weather === 'lluvia y nevada') {
+    src = 'imagenes/snow.png';
+  } else if (weather === 'lluvia ligera') {
+    src = 'imagenes/cloudy_rain.png';
+  } else if (weather === 'lluvia moderada') {
+    src = 'imagenes/rain.png';
+  } else if (weather === 'storm') {
+    src = 'imagenes/storm.png';
   }
   tempImg.src = src;
 }
@@ -28,10 +34,10 @@ async function search(query) {
     const data = await response.json();
     card.style.display = 'block';
     city.innerHTML = `${data.name}, ${data.sys.country}`;
-    data.innerHTML = (new Date()).toLocaleDateString();
-    temp.innerHTML = `${toCelsius(data.main.temp)}c`;
+    date.innerHTML = (new Date()).toLocaleDateString();
+    temp.innerHTML = `${toCelsius(data.main.temp)}°`;
     weather.innerHTML = data.weather[0].description;
-    range.innerHTML = `${toCelsius(data.main.temp_min)}c / ${toCelsius(data.main.temp_max)}c`;
+    range.innerHTML = `${toCelsius(data.main.temp_min)}° / ${toCelsius(data.main.temp_max)}°`;
     updateImages(data);
   } catch (err) {
     console.log(err);
